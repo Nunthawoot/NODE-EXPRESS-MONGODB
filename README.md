@@ -1,5 +1,16 @@
 # NODE-EXPRESS-MONGODB
 NODE EXPRESS MONGODB
 
-run the app with this command
+## Installation
+
+```
+npm install
+```
+
+##  run the app with this command:
+
+```
 $ DEBUG=myapp:* npm start
+```
+# Reference
+[Expressjs](https://expressjs.com/)
