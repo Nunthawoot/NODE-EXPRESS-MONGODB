@@ -3,14 +3,20 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-require("dotenv").config();
+
+const dotenv = require("dotenv"); //require dotenv package
+dotenv.config({ path: "./.env" }); //import config.env fil
+const DB = process.env.MONGODB_URI;
+console.log("process.env.MONGODB_URI", process.env.MONGODB_URI);
 const mongoose = require("mongoose");
 const characters = require("./routes/characters");
 mongoose.Promise = global.Promise;
 
 mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(() => console.log("Connect to mongoDB"))
+  .connect(DB)
+  .then(() => {
+    console.log("Successfully connected ");
+  })
   .catch((error) => console.error(error));
 
 var indexRouter = require("./routes/index");
